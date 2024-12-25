@@ -1,14 +1,45 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
 import React from "react";
-import profile from "../datas/profile";
+import profile from "../datas/profileData";
 import { useNavigation } from "@react-navigation/native";
+import Products from "../datas/Products";
 
 const Profile = () => {
   const navigation = useNavigation();
   return (
-    <View>
+    <ScrollView>
       <Image source={profile.image} style={{ width: 160, height: 160 }} />
       <Text style={{ fontSize: 18 }}>{profile.name}</Text>
+      <Text>My Items</Text>
+
+      <FlatList
+        data={Products}
+        renderItem={({ item }) => (
+          <View
+            key={item.id}
+            style={{
+              padding: 10,
+              marginBottom: 10,
+            }}
+          >
+            <Image
+              source={item.productsImage}
+              style={{ width: 100, height: 100, marginBottom: 5 }}
+            />
+            <Text style={{ fontSize: 16 }}>{item.productsName}</Text>
+            <Text style={{ fontSize: 14, color: "gray" }}>${item.price}</Text>
+          </View>
+        )}
+        keyExtractor={(item) => item.id.toString()}
+      />
+
       <TouchableOpacity
         key={profile.id}
         style={{
@@ -20,7 +51,7 @@ const Profile = () => {
       >
         <Text>Edit</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 
