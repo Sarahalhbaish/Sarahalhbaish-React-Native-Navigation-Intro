@@ -8,10 +8,10 @@ const Stack = createNativeStackNavigator();
 const ProfileNavigation = () => {
   return (
     <Stack.Navigator>
-    <Stack.Screen name="Profile" component={Profile} />
-    <Stack.Screen name="EditProfile" component={EditProfile} />
-  </Stack.Navigator>
-  )
-}
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="EditProfile" component={EditProfile} />
+    </Stack.Navigator>
+  );
+};
 
-export default ProfileNavigation
+export default ProfileNavigation;

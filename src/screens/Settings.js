@@ -1,13 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, SafeAreaView } from "react-native";
 import React from "react";
 
 const Settings = ({ route }) => {
-//   const { name } = route.params;
+  //   const { name } = route.params;
   return (
-    <View>
+    <SafeAreaView>
       <Text>Settings</Text>
       {/* <Text>{name}</Text> */}
-    </View>
+    </SafeAreaView>
   );
 };
 
