@@ -11,6 +11,7 @@ import React from "react";
 import profile from "../datas/profileData";
 import { useNavigation } from "@react-navigation/native";
 import Products from "../datas/Products";
+import { Ionicons } from "@expo/vector-icons";
 
 const Profile = () => {
   const navigation = useNavigation();
@@ -22,6 +23,9 @@ const Profile = () => {
       </View>
 
       <View style={styles.sectionHeader}>
+        <TouchableOpacity onPress={() => navigation.navigate("AddItem")}>
+          <Ionicons name="add-circle-outline" size={24} color="black" />
+        </TouchableOpacity>
         <Text style={styles.sectionTitle}>My Items</Text>
       </View>
 
@@ -72,13 +76,19 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   sectionHeader: {
-    padding: 16,
-    backgroundColor: "#fff",
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    backgroundColor: '#ffffff',
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
   },
   sectionTitle: {
-    fontSize: 20,
-    fontWeight: "600",
-    color: "#333",
+    fontSize: 18,
+    fontWeight: '600',
+    marginLeft: 8,
+    color: '#000000',
   },
   itemsGrid: {
     padding: 8,
