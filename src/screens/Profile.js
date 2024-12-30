@@ -8,10 +8,10 @@ import {
   StyleSheet,
 } from "react-native";
 import React from "react";
-import profile from "../datas/profileData";
 import { useNavigation } from "@react-navigation/native";
 import Products from "../datas/Products";
 import { Ionicons } from "@expo/vector-icons";
+import profile from "../datas/profileData";
 
 const Profile = () => {
   const navigation = useNavigation();
@@ -20,6 +20,7 @@ const Profile = () => {
       <View style={styles.profileHeader}>
         <Image source={profile.image} style={styles.profileImage} />
         <Text style={styles.profileName}>{profile.name}</Text>
+        <Text style={styles.profileDescription}>{profile.description}</Text>
       </View>
 
       <View style={styles.sectionHeader}>

@@ -12,45 +12,40 @@ import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
-const EditProfile = ({ route }) => {
+const EditProfile = () => {
   const navigation = useNavigation();
-  const profile = route.params;
-  const [text, setText] = useState(profile.name);
+
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <Button onPress={() => navigation.navigate("Profile")} title="Save" />
-      </View>
-
-      <View style={styles.imageContainer}>
-        <Image source={profile.image} style={styles.profileImage} />
-        <TouchableOpacity style={styles.uploadButton}>
-          <Text style={styles.uploadText}>upload image</Text>
-        </TouchableOpacity>
-      </View>
+     
 
       <View style={styles.formContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Edit your first name"
-          onChangeText={(newText) => setText(newText)}
+          placeholder="Edit your name"
+          onChangeText={(newText) => setName(newText)}
         />
         <TextInput
           style={styles.input}
-          placeholder="Edit your last name"
-          onChangeText={(newText) => setText(newText)}
+          placeholder="Edit your description"
+          onChangeText={(newText) => setDescription(newText)}
         />
         <TextInput
           style={styles.input}
-          placeholder="Edit your phonenumber"
-          onChangeText={(newText) => setText(newText)}
+          placeholder="Edit your image"
+          onChangeText={(newText) => setImage(newText)}
         />
-        <TextInput
-          style={styles.input}
-          placeholder="Edit your email"
-          onChangeText={(newText) => setText(newText)}
-        />
+      </View>
+      <View style={styles.header}>
+          <Button   title="Save" onPress={() => {
+          console.log("Profile",name, description, image)
+          navigation.navigate("Profile")} }
+          />
+          <Button onPress={() => navigation.navigate("Profile")} title="Cancel" />
       </View>
 
       <View style={styles.settingsContainer}>
